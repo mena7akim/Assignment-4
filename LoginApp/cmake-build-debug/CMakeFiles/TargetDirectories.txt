@@ -1,0 +1,4 @@
+C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/CMakeFiles/LoginFunctions_cpp.dir
+C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/CMakeFiles/LoginApp.dir
+C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
