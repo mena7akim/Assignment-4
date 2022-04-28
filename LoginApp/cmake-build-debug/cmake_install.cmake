@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/over-/CLionProjects/LoginApp
+# Install script for directory: D:/Assignmet 4/Assignment-4/LoginApp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Assignmet 4/Assignment-4/LoginApp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

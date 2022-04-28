@@ -21,6 +21,7 @@ struct user{
         bool validEmail();
         bool validUserName();
         bool validPhoneNumber();
+        bool strongPassword();
 
         void setName(string name);
         void setEmail(string email);

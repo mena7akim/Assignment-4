@@ -1,4 +1,4 @@
-C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/CMakeFiles/LoginFunctions_cpp.dir
-C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/CMakeFiles/LoginApp.dir
-C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/over-/CLionProjects/LoginApp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Assignmet 4/Assignment-4/LoginApp/cmake-build-debug/CMakeFiles/LoginFunctions_cpp.dir
+D:/Assignmet 4/Assignment-4/LoginApp/cmake-build-debug/CMakeFiles/LoginApp.dir
+D:/Assignmet 4/Assignment-4/LoginApp/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Assignmet 4/Assignment-4/LoginApp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
