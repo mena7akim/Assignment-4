@@ -1,15 +1,17 @@
 #include <bits/stdc++.h>
 #include "LoginFunctions.h"
+#include <conio.h>
 using namespace std;
 
 user newUser;
 bool isTrue = true;
-string username,email,password,phoneNumber,line;
+string username,email,password,repeatPassword,phoneNumber,line;
 
 void emailRegister();
 void usernameRegister();
 void phoneNumberRegister();
 void passwordRegister();
+string hiddenPassword();
 
 int main() {
     int order;
@@ -20,6 +22,7 @@ int main() {
             emailRegister();
             usernameRegister();
             phoneNumberRegister();
+            passwordRegister();
             break;
         case 2:
             break;
@@ -28,9 +31,7 @@ int main() {
         case 4:
             break;
     }
-
 }
-
 void emailRegister(){
     fstream data;
     data.open("data.txt", ios::out|ios::in);
@@ -61,12 +62,11 @@ void emailRegister(){
         }
         else
         {
-            cout << "unvalid Email. try again\n";
+            cout << "invalid Email. try again\n";
         }
     }
     data.close();
 }
-
 void usernameRegister(){
     isTrue = true;
     int lineNumber = 1;
@@ -102,7 +102,7 @@ void usernameRegister(){
         }
         else
         {
-            cout << "unvalid username. try again\n";
+            cout << "invalid username. try again\n";
         }
     }
     data.close();
@@ -143,8 +143,67 @@ void phoneNumberRegister(){
         }
         else
         {
-            cout << "unvalid phone number. try again\n";
+            cout << "invalid phone number. try again\n";
         }
     }
     data.close();
+}
+string hiddenPassword() {
+    const int passwordLength = 50;
+    char password[passwordLength + 1];
+    char ch;
+    int characterPosition = 0;
+    while (true) {
+        ch = getch();
+        if (ch == 13) {
+            break;
+        } else if (ch == 8) {
+            if (characterPosition > 0) {
+                characterPosition--;
+                password[characterPosition] = '\0';
+                cout << "\b \b";
+            }
+        } else if (ch == 32 or ch == 9) {
+            continue;
+        } else {
+            if (characterPosition < passwordLength) {
+                password[characterPosition] = ch;
+                characterPosition++;
+                cout << "*";
+            }
+        }
+    }
+    password[characterPosition] = '\0';
+    string the_password(password);
+    return the_password;
+}
+void passwordRegister() {
+    fstream data;
+    data.open("data.txt", ios::out | ios::in);
+    while (true) {
+        cout << "Enter a password contains at least 12 characters, upper case, lower case, numbers and special characters: \n";
+        cout << "Enter your password:\n";
+        password = hiddenPassword();
+        newUser.setPassword(password);
+         if (newUser.strongPassword()){
+            cout << "Enter your password again: \n";
+            repeatPassword = hiddenPassword();
+            if (repeatPassword == password)
+            {
+                cout << "password is strong and correct \n";
+                data << "\n" <<newUser.password();
+                break;
+            }
+            else
+            {
+                cout << "The two passwords are not the same!\nPlease enter the password again:\n";
+            }
+        }
+        else
+        {
+            cout << "The password is weak, try another password\n";
+            break;
+        }
+        data.close();
+    }
 }

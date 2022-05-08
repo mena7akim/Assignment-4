@@ -68,3 +68,24 @@ bool user::validPhoneNumber(){
     regex validPhoneNumber("01[0-9]{9}$");
     return regex_match(userPhoneNumber, validPhoneNumber);
 }
+bool user::strongPassword(){
+    int strong[4] = { 0 };
+    for (int i = 0; i < userPassword.length(); i++){
+        if (isupper(userPassword[i])){
+            strong[0] = 1;
+        }
+        else if (islower(userPassword[i])){
+            strong[1] = 1;
+        }
+        else if (isdigit(userPassword[i])){
+            strong[2] = 1;
+        }
+        else{
+            strong[3] = 1;
+        }
+    }
+    if (strong[0] + strong[1] + strong[2] + strong[3] == 4 and userPassword.length() >= 12)
+        return true;
+    else
+        return false;
+}
