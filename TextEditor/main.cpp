@@ -78,6 +78,87 @@ void decryptFile(fstream &file, string fileName){
     file.close();
 }
 
+void mergeFile(fstream &file, string fileName) {
+    char file2Name[50], text;
+    cout << "Enter the name of file you want to merge: \n";
+    cin >> file2Name;
+    fstream file2;
+    strcat(file2Name, ".txt");
+    file2.open(file2Name, ios::in);
+    if (!file2) {
+        cout << "Enter an exist file!\n";
+    } else {
+        file.open(fileName, ios::app);
+        while (file2 >> noskipws >> text)
+            file << text;
+        file << "\n";
+        cout << "TWO files are merged! \n";
+    }
+    file2.close();
+    file.close();
+}
+
+void NumberOfWords(fstream &file, string fileName) {
+    file.open(fileName, ios::in);
+    int count = 0;
+    char word[50];
+    // check whether we have reached the End-Of-File(EOF) character in a file or not
+    while (!file.eof()){
+        file >> word;
+        count ++;
+    }
+    cout << "number os words is " << count-1 << ".\n";
+    file.close();
+}
+
+void NumberOfCharacters(fstream &file, string fileName){
+    file.open(fileName, ios::in);
+    int count = 0;
+    char character;
+    while (!file.eof()){
+        while (file >> character)
+        {
+         ++count;
+        }
+    }
+    cout << "number os characters is " << count << ".\n";
+    file.close();
+}
+
+void NumberOfLines(fstream &file, string fileName) {
+    file.open(fileName, ios::in);
+    int count = 0;
+    string line;
+    while (!file.eof()) {
+        getline(file,line);
+        count++;
+    }
+    cout << "number of lines is " << count << ".\n";
+    file.close();
+}
+
+void SearchForAWord(fstream &file, string fileName) {
+    file.open(fileName, ios::in);
+    string search;
+    string line;
+    int word;
+    cout << "what is the word you want to search about? \n";
+    cin >> search;
+    if (file.is_open()) {
+        while (!file.eof()) {
+            getline(file, line);
+            word = line.find(search, 0);
+            if (word != string::npos) {
+                cout << "Word was found in the file \n";
+                break;
+            } else {
+                cout << "Word was not found in the file \n";
+                break;
+            }
+        }
+    }
+     file.close();
+}
 
 int main()
 {
@@ -121,6 +202,21 @@ int main()
                 break;
             case 5:
                 decryptFile(file,fileName);
+                break;
+            case 6:
+                mergeFile(file,fileName);
+                break;
+            case 7:
+                NumberOfWords(file,fileName);
+                break;
+            case 8:
+                NumberOfCharacters(file, fileName);
+                break;
+            case 9:
+                NumberOfLines(file, fileName);
+                break;
+            case 10:
+              SearchForAWord(file,fileName);
                 break;
         }
         if (textOption == 16){
